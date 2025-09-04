@@ -1,0 +1,21 @@
+{
+  "short_name": "پرۆژێ ئیسلام",
+  "name": "پرۆژێ ئیسلام - رێبەرێ تە بۆ فێربوونێ",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0d1117",
+  "background_color": "#0d1117",
+  "description": "دەروازەیەکا مودێرن و رێکخستی بۆ فێربوون و تێگەهشتنا ئیسلامێ."
+}

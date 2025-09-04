@@ -3,13 +3,13 @@
   "name": "پرۆژێ ئیسلام - رێبەرێ تە بۆ فێربوونێ",
   "icons": [
     {
-      "src": "IMG_1164.ico",
-      "type": "IMG_1164.jpeg",
+      "src": "icons/logo-192.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "IMG_1164.ico",
-      "type": "IMG_1164.jpeg",
+      "src": "icons/logo-512.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],

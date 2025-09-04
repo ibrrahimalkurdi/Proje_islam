@@ -1,6 +1,6 @@
 {
-  "name": "پروژێ ئیسلام",
-  "short_name": "h",
+  "name": "پرۆژێ ئیسلام",
+  "short_name": "ئیسلام",
   "description": "دەروازەیەکا مودێرن بۆ فێربوونا ئیسلامێ",
   "start_url": ".",
   "display": "standalone",
@@ -8,12 +8,12 @@
   "theme_color": "#58a6ff",
   "icons": [
     {
-      "src": "https://ibb.co/7J8GnVMV",
+      "src": "https://i.ibb.co/7J8GnVMV/logo-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://ibb.co/SXLsqB69",
+      "src": "https://i.ibb.co/SXLsqB69/logo-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

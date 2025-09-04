@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>پرۆژێ ئیسلام</title>
-<!-- PWA Manifest -->
+<!-- PWA Manifest (گرنگ: فایلێ manifest.json د فۆلدەرا سەرەکی دا دابنێ) -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#58a6ff">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,7 +15,7 @@
 
 <!-- CSS Libraries -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <style>
 /* --- CSS گشتی و گۆڕاوەکان --- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;700&display=swap');
@@ -81,7 +81,7 @@ footer { padding: 40px 20px; text-align: center; border-top: 1px solid var(--bor
 .page-header h1 { font-size: 3rem; margin-bottom: 10px; background: linear-gradient(120deg, var(--primary-text), var(--accent-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent; }
 .empty-state-message { text-align: center; color: var(--secondary-text); padding: 50px 20px; font-size: 1.1rem; }
 
-/* === ستایلی نوێ و سەرنجراکێش بۆ مالپەرێ سەرەکی === */
+/* === ستایلی نوو و سەرنجراکێش بۆ مالپەرێ سەرەکی (ژ داخازیا تە) === */
 #home-view.is-visible { padding: 0; }
 .home-hero-section { min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 20px; background: linear-gradient(160deg, rgba(13, 17, 23, 0.95), rgba(13, 17, 23, 0.6)), url('https://images.unsplash.com/photo-1585036919222-91184de2a58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover; border-bottom: 2px solid var(--accent-color); }
 .home-hero-section h1 { font-size: 4.5rem; font-weight: 700; color: #fff; margin-bottom: 20px; text-shadow: 0 5px 20px rgba(0,0,0,0.5); animation: fadeInUp 1s ease-out; }
@@ -91,17 +91,60 @@ footer { padding: 40px 20px; text-align: center; border-top: 1px solid var(--bor
 .home-navigation-container { padding: 80px 20px; }
 .home-navigation-container h2 { text-align: center; font-size: 2.8rem; margin-bottom: 50px; color: var(--primary-text); position: relative; padding-bottom: 15px; }
 .home-navigation-container h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background-color: var(--accent-color); border-radius: 2px; }
-.main-navigation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-.main-navigation-card { display: block; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; text-align: center; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
-.main-navigation-card:hover { transform: translateY(-8px); border-color: var(--accent-color); box-shadow: 0 10px 30px rgba(88, 166, 255, 0.1); text-decoration: none; }
-.main-navigation-card.locked { opacity: 0.5; cursor: not-allowed; filter: grayscale(80%); }
-.main-navigation-card.locked-permanent { transform: scale(0.95); opacity: 0.6; } /* ستایلی نوو بۆ قفلا هەمیشەیی */
-.main-navigation-card.locked:hover { transform: none; border-color: var(--border-color); box-shadow: none; }
-.main-navigation-card .lock-icon { position: absolute; top: 15px; left: 15px; font-size: 1.5rem; color: var(--warning-color); }
-.main-navigation-card i.main-icon { font-size: 3rem; color: var(--accent-color); margin-bottom: 20px; display: block; transition: transform 0.3s ease; }
-.main-navigation-card:hover i.main-icon { transform: scale(1.1); }
-.main-navigation-card h3 { font-size: 1.5rem; color: var(--primary-text); margin-bottom: 10px; }
-.main-navigation-card p { color: var(--secondary-text); font-size: 1rem; }
+
+.main-navigation-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    display: grid;
+}
+.main-navigation-card {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    padding: 20px;
+    gap: 20px;
+    background: linear-gradient(145deg, var(--card-bg), #1a1f2e);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+.main-navigation-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(88, 166, 255, 0.15);
+    border-color: var(--accent-color);
+    text-decoration: none;
+}
+.main-navigation-card i.main-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0;
+    background: -webkit-linear-gradient(45deg, var(--accent-color), #79c0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 50px;
+    transition: transform 0.4s ease;
+}
+.main-navigation-card:hover i.main-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+.main-navigation-card .card-text-content {
+    flex-grow: 1;
+}
+.main-navigation-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--primary-text);
+}
+.main-navigation-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--secondary-text);
+}
+.main-navigation-card.locked { opacity: 0.6; cursor: not-allowed; filter: grayscale(80%); }
+.main-navigation-card.locked:hover { transform: none; box-shadow: none; border-color: var(--border-color); }
+.main-navigation-card .lock-icon { position: absolute; top: 15px; left: 15px; font-size: 1.2rem; color: var(--warning-color); }
 
 /* ستایلێن داشبۆردێ و گەیمیفیکەیشن */
 #dashboard-view .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
@@ -124,6 +167,16 @@ footer { padding: 40px 20px; text-align: center; border-top: 1px solid var(--bor
 .badge-icon.unlocked { color: var(--warning-color); transform: scale(1.1); text-shadow: 0 0 15px rgba(240, 180, 41, 0.5); }
 .badge-title { font-size: 0.8rem; color: var(--secondary-text); }
 .badge-item .unlocked ~ .badge-title { color: var(--primary-text); }
+
+/* --- ستایلێ نوو بۆ ئەرکێن ڕۆژانە (ژ داخازیا تە) --- */
+.daily-tasks-card .task-item { display: flex; align-items: center; gap: 15px; padding: 12px 0; border-bottom: 1px solid var(--border-color); }
+.daily-tasks-card .task-item:last-child { border-bottom: none; }
+.daily-tasks-card .task-item input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--success-color); cursor: pointer; flex-shrink: 0; }
+.daily-tasks-card .task-item label { flex-grow: 1; cursor: pointer; }
+.daily-tasks-card .task-item.completed label { text-decoration: line-through; color: var(--secondary-text); }
+.daily-tasks-footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-top: 20px; font-size: 0.9rem; color: var(--secondary-text); gap: 10px; }
+.streak-info span { font-weight: bold; color: var(--primary-text); }
+.streak-info .broken-streak { color: var(--danger-color); }
 
 /* ستایلێن مۆدالا لێگەریانێ */
 #global-search-modal .modal-content { max-width: 700px; padding: 25px; display: flex; flex-direction: column; height: 80vh; }
@@ -148,6 +201,58 @@ footer { padding: 40px 20px; text-align: center; border-top: 1px solid var(--bor
 .favorite-item-actions .go-to-btn:hover { color: var(--accent-color); }
 .favorite-item-actions .remove-btn { color: var(--secondary-text); }
 .favorite-item-actions .remove-btn:hover { color: var(--danger-color); }
+
+/* --- ستایلێ نوو بۆ دوگمەیا Add to Home (ژ داخازیا تە) --- */
+#install-app-banner {
+    position: fixed;
+    bottom: -150px; /* Destpêkê veşartî ye */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-top: 3px solid var(--accent-color);
+    border-radius: 12px 12px 0 0;
+    padding: 20px;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+    z-index: 5000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    transition: bottom 0.5s ease-in-out;
+}
+#install-app-banner.visible {
+    bottom: 0; /* Dema diyar dibe, tê jor */
+}
+.install-app-text h4 {
+    margin: 0 0 5px 0;
+    color: var(--primary-text);
+}
+.install-app-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+#install-app-btn {
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: var(--font-kurdish);
+    cursor: pointer;
+    white-space: nowrap;
+}
+#dismiss-install-btn {
+    background: none;
+    border: none;
+    color: var(--secondary-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+}
 
 @media (max-width: 768px) {
     .home-hero-section h1 { font-size: 2.8rem; }
@@ -474,6 +579,17 @@ audio::-webkit-media-controls-fullscreen-button { color: var(--primary-text); }
     </div>
 </footer>
 
+<!-- بەنەرا "Add to Home Screen" (ژ داخازیا تە) -->
+<div id="install-app-banner">
+    <button id="dismiss-install-btn" title="گرتن">&times;</button>
+    <div class="install-app-text">
+        <h4>پرۆژێ ئیسلام وەک ئەپ دابەزینە</h4>
+        <p>بۆ ئەزموونەکا باشتر و خێراتر.</p>
+    </div>
+    <button id="install-app-btn">دابەزاندن</button>
+</div>
+
+
 <!-- JS Libraries -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   
@@ -485,10 +601,8 @@ audio::-webkit-media-controls-fullscreen-button { color: var(--primary-text); }
 'use strict';
 
 // === [ 1. حالەتێ گشتی و گۆڕاوەکان ] ===
-// گرنگ: ڤان هەردوو گۆراوان لسەر بنەمایێ گوگل شیتێ خۆ بگوهۆرە
 const publishedCsvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRwD58WrboATMUyuRxuXDNExmN77tXF5nI4AVoVktJ6NGpg2EoMkFe8McZaUyn_q5HrT8grpYJdVgiq/pub?output=csv';
 const sheetGIDs = { 
-    // GID یێن سەرەکی
     teachers: '0', 
     generalLectures: '480195998', 
     books: '420495992', 
@@ -499,11 +613,9 @@ const sheetGIDs = {
     fatwas: '480454716', 
     hadiths: '323793580', 
     tafsir: '2031580242',
-    // GID یێن بەشێن نوو
     seerah: 'GID_HERE',
     adhkar: 'GID_HERE',
     fiqh: 'GID_HERE',
-    // GID بۆ کۆنترۆلکرنا دیاربوونا بەشان
     viewStatus: '1476353771' 
 };
 
@@ -561,10 +673,11 @@ const favoritesManager = {
 };
 const gamificationManager = {
     badgesKey: 'islamProject_Badges', dailyStreakKey: 'islamProject_DailyStreak',
+    pointsKey: 'islamProject_Points',
     badgesData: { 
         'first_hadith': { title: 'ئێکەم حەدیس', icon: 'fa-book-open', condition: () => hadithTracker.getReadHadiths().length >= 1 }, 
         'ten_hadiths': { title: '10 حەدیس', icon: 'fa-layer-group', condition: () => hadithTracker.getReadHadiths().length >= 10 },
-        'fifty_hadiths': { title: '50 حەدیس', icon: 'fa-book-bible', condition: () => hadithTracker.getReadHadiths().length >= 50 }, 
+        'fifty_hadiths': { title: '50 حەدیس', icon: 'fa-book-journal-whills', condition: () => hadithTracker.getReadHadiths().length >= 50 }, 
         'first_course': { title: 'ئێکەم وانە', icon: 'fa-graduation-cap', condition: () => progressManager.getCompletedCourses().length >= 1 },
         'five_courses': { title: '5 وانە', icon: 'fa-star', condition: () => progressManager.getCompletedCourses().length >= 5 },
         'first_level': { title: 'ئاستێ 1', icon: 'fa-medal', condition: () => allData.levels[0] && allData.levels[0].courses.every(c => progressManager.isCourseComplete(c.id)) },
@@ -573,9 +686,90 @@ const gamificationManager = {
         'first_favorite': { title: 'دڵخوازێ من', icon: 'fa-bookmark', condition: () => favoritesManager.getFavorites().length >= 1 },
         'first_memorized': { title: 'ژبەرکرن', icon: 'fa-brain', condition: () => progressManager.getMemorizedPdfs().length >= 1 }
     },
+    getPoints: function() { return parseInt(localStorage.getItem(this.pointsKey) || '0'); },
+    updatePoints: function(amount) { let currentPoints = this.getPoints(); localStorage.setItem(this.pointsKey, currentPoints + amount); buildDashboardView(); },
+    recalculateTotalPoints: function() {
+        const completedCourses = progressManager.getCompletedCourses().length;
+        const memorizedPdfs = progressManager.getMemorizedPdfs().length;
+        const readHadiths = hadithTracker.getReadHadiths().length;
+        const watchedLectures = progressManager.getWatchedLectures().length;
+        const readLibraryBooks = progressManager.getReadLibraryBooks().length;
+        const favoritesCount = favoritesManager.getFavorites().length;
+        const dailyTasksPoints = dailyTaskManager.getPointsFromTasks();
+        
+        const totalPoints = (completedCourses * 10) + (memorizedPdfs * 50) + (readHadiths * 1) +
+                            (watchedLectures * 5) + (readLibraryBooks * 15) + (favoritesCount * 2) + dailyTasksPoints;
+        
+        localStorage.setItem(this.pointsKey, totalPoints);
+        return totalPoints;
+    },
     getUnlockedBadges: function() { try { return JSON.parse(localStorage.getItem(this.badgesKey) || '[]'); } catch(e) { return []; } },
     checkAndAwardBadges: function() { let unlocked = this.getUnlockedBadges(); let changed = false; for (const [id, badge] of Object.entries(this.badgesData)) { if (!unlocked.includes(id) && badge.condition()) { unlocked.push(id); changed = true; } } if (changed) localStorage.setItem(this.badgesKey, JSON.stringify(unlocked)); },
     getDailyStreak: function() { try { const data = JSON.parse(localStorage.getItem(this.dailyStreakKey) || '{"count":0, "lastVisit":""}'); const today = new Date().toISOString().slice(0, 10); const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10); if (data.lastVisit === today) return data.count; if (data.lastVisit === yesterday) { data.count++; } else { data.count = 1; } data.lastVisit = today; localStorage.setItem(this.dailyStreakKey, JSON.stringify(data)); return data.count; } catch(e) { return 0; } }
+};
+const dailyTaskManager = {
+    key: 'islamProject_DailyTasks',
+    tasks: [
+        { id: 'quran', text: 'خاندنا ١٠ پەرێن قورئانێ', points: 5 },
+        { id: 'hadith', text: 'خاندنا ٥ حەدیسان', points: 5 },
+        { id: 'lecture', text: 'تەماشاکرنا وانەیەکێ', points: 10 },
+        { id: 'adhkar', text: 'کرنا زکرێن سپێدە و ئێڤاران', points: 5 },
+        { id: 'progress', text: 'پێشکەفتن د ڕێرەوا فێربوونێ دا', points: 10 }
+    ],
+    getData: function() {
+        try {
+            return JSON.parse(localStorage.getItem(this.key)) || {
+                date: '',
+                completedTasks: [],
+                consecutiveStreak: 0,
+                brokenStreak: 0,
+                points: 0
+            };
+        } catch(e) { return { date: '', completedTasks: [], consecutiveStreak: 0, brokenStreak: 0, points: 0 }; }
+    },
+    saveData: function(data) { localStorage.setItem(this.key, JSON.stringify(data)); },
+    checkAndUpdateTasks: function() {
+        let data = this.getData();
+        const today = new Date().toISOString().slice(0, 10);
+        const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+        
+        if (data.date === today) return; // Heman roj e, tiştekî neke
+
+        if (data.date === yesterday) { // Roja dûvde
+            if (data.completedTasks.length === this.tasks.length) {
+                data.consecutiveStreak++;
+            } else {
+                data.consecutiveStreak = 0;
+                data.brokenStreak++;
+                gamificationManager.updatePoints(-10); // Siza -10 خال
+            }
+        } else if (data.date !== '') { // Rojek beriya dûvde
+            data.consecutiveStreak = 0;
+            data.brokenStreak++;
+            gamificationManager.updatePoints(-10);
+        }
+        
+        data.date = today;
+        data.completedTasks = [];
+        this.saveData(data);
+    },
+    toggleTask: function(taskId) {
+        let data = this.getData();
+        const task = this.tasks.find(t => t.id === taskId);
+        if (!task) return;
+
+        const index = data.completedTasks.indexOf(taskId);
+        if (index > -1) {
+            data.completedTasks.splice(index, 1);
+            data.points -= task.points; // Xalan kêm bike
+        } else {
+            data.completedTasks.push(taskId);
+            data.points += task.points; // Xalan zêde bike
+        }
+        this.saveData(data);
+        buildDashboardView();
+    },
+    getPointsFromTasks: function() { return this.getData().points || 0; }
 };
 
 // === [ 2. دەستپێکرن و ڕێکخستن ] ===
@@ -583,11 +777,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const loadingScreen = document.getElementById('loading-screen');
     try {
         await loadDataFromSheets();
+        dailyTaskManager.checkAndUpdateTasks();
         buildAllViews();
         updateAndShowVisitorCount();
         setupEventListeners();
+        setupInstallPrompt();
         showHomeView();
-        gamificationManager.getDailyStreak(); // To initialize or update streak on load
+        gamificationManager.getDailyStreak();
     } catch (error) { console.error("Çewtî di dema destpêkê da:", error); loadingScreen.innerHTML = '<div class="welcome-text" style="animation:none; opacity:1;">چەوتیەک روویدا د وەرگرتنا زانیارییان دا.<br>هیڤیدارین پەیوەندیێ ب پشتەڤانیا تەکنیکی بکە.</div>'; return; } 
     finally { loadingScreen.classList.add('fade-out'); }
 });
@@ -595,9 +791,9 @@ function setupEventListeners() { document.querySelectorAll('.modal-overlay').for
 
 // === [ 3. وەرگرتن و پرۆسێسا داتایان ] ===
 async function loadDataFromSheets() {
-    const CACHE_KEY = 'islamProject_allData_cache_v4'; // Versiyon hate guhertin
-    const CACHE_TIMESTAMP_KEY = 'islamProject_cache_timestamp_v4';
-    const CACHE_DURATION = 6 * 60 * 60 * 1000; // 6 دەمژمێر
+    const CACHE_KEY = 'islamProject_allData_cache_v5';
+    const CACHE_TIMESTAMP_KEY = 'islamProject_cache_timestamp_v5';
+    const CACHE_DURATION = 6 * 60 * 60 * 1000;
     const loadingMessage = document.getElementById('loading-message');
 
     try {
@@ -732,25 +928,19 @@ function buildHomeView() {
         }
     });
 
-    lockedItems.sort((a, b) => (a.status === '8' ? 1 : -1) - (b.status === '8' ? 1 : -1));
-
     const renderCard = (item, isLocked) => {
         if (isLocked) {
-            const isPermanentLock = item.status === '8';
             const lockIconClass = item.status === '1' ? 'fa-hourglass-half' : 'fa-lock';
             const titleText = item.status === '1' ? 'ئەڤ بەشە د کارکرنێ دایە' : 'ئەڤ بەشە قفلە';
-            const extraClass = isPermanentLock ? 'locked-permanent' : '';
-            return `<div class="main-navigation-card locked ${extraClass}" title="${titleText}">
+            return `<div class="main-navigation-card locked" title="${titleText}">
                         <i class="lock-icon fas ${lockIconClass}"></i>
                         <i class="${item.icon} main-icon"></i>
-                        <h3>${item.title}</h3>
-                        <p>${item.desc}</p>
+                        <div class="card-text-content"><h3>${item.title}</h3><p>${item.desc}</p></div>
                     </div>`;
         } else {
             return `<a href="#" onclick="navigateToView('${item.viewId}')" class="main-navigation-card">
                         <i class="${item.icon} main-icon"></i>
-                        <h3>${item.title}</h3>
-                        <p>${item.desc}</p>
+                        <div class="card-text-content"><h3>${item.title}</h3><p>${item.desc}</p></div>
                     </a>`;
         }
     };
@@ -765,23 +955,12 @@ function buildHomeView() {
 
 function buildDashboardView() {
     const container = document.getElementById('dashboard-view');
-    const completedCourses = progressManager.getCompletedCourses();
-    const memorizedPdfs = progressManager.getMemorizedPdfs();
-    const readHadiths = hadithTracker.getReadHadiths();
-    const watchedLectures = progressManager.getWatchedLectures();
-    const readLibraryBooks = progressManager.getReadLibraryBooks();
-    const favoritesCount = favoritesManager.getFavorites().length;
-
-    const points = (completedCourses.length * 10) + 
-                   (memorizedPdfs.length * 50) + 
-                   (readHadiths.length * 1) +
-                   (watchedLectures.length * 5) +
-                   (readLibraryBooks.length * 15) +
-                   (favoritesCount * 2);
-
-    const totalLevelCourses = allData.levels.reduce((sum, level) => sum + level.courses.length, 0);
-    const progressPercentage = totalLevelCourses > 0 ? (completedCourses.length / totalLevelCourses) * 100 : 0;
+    
+    const points = gamificationManager.recalculateTotalPoints();
     const dailyStreak = gamificationManager.getDailyStreak();
+    const dailyTasksData = dailyTaskManager.getData();
+    const consecutiveTaskStreak = dailyTasksData.consecutiveStreak;
+    const brokenTaskStreak = dailyTasksData.brokenStreak;
     const unlockedBadges = gamificationManager.getUnlockedBadges();
 
     const badgesHTML = Object.entries(gamificationManager.badgesData).map(([id, badge]) => {
@@ -792,23 +971,50 @@ function buildDashboardView() {
         </div>`;
     }).join('');
 
+    const tasksHTML = dailyTaskManager.tasks.map(task => {
+        const isCompleted = dailyTasksData.completedTasks.includes(task.id);
+        return `<div class="task-item ${isCompleted ? 'completed' : ''}">
+            <input type="checkbox" id="task-${task.id}" onchange="dailyTaskManager.toggleTask('${task.id}')" ${isCompleted ? 'checked' : ''}>
+            <label for="task-${task.id}">${task.text} (+${task.points} خال)</label>
+        </div>`;
+    }).join('');
+
+    const completedCourses = progressManager.getCompletedCourses();
+    const totalLevelCourses = allData.levels.reduce((sum, level) => sum + level.courses.length, 0);
+    const progressPercentage = totalLevelCourses > 0 ? (completedCourses.length / totalLevelCourses) * 100 : 0;
+    
     container.innerHTML = `
         <header class="page-header"><h1>داشبۆرد</h1><p>پێشکەفتن و چالاکیێن خۆ لڤێرێ ببینە</p></header>
         <div class="dashboard-grid">
             <div class="dashboard-card">
                 <div class="dashboard-card-header"><i class="fas fa-star"></i><h3>خالێن تە</h3></div>
                 <div class="points-display"><div class="points-number">${points}</div><div class="points-label">خال</div></div>
-                ${dailyStreak > 1 ? `<div class="daily-streak-display"><i class="fas fa-fire"></i><span>${dailyStreak} رۆژێن لسەر ئێک</span></div>` : ''}
+                ${dailyStreak > 1 ? `<div class="daily-streak-display"><i class="fas fa-fire"></i><span>${dailyStreak} رۆژێن لسەر ئێک (سەرەدان)</span></div>` : ''}
             </div>
+            
+            <div class="dashboard-card daily-tasks-card" style="grid-column: 1 / -1;">
+                <div class="dashboard-card-header"><i class="fas fa-tasks"></i><h3>ئەرکێن تە یێن ڕۆژانە</h3></div>
+                <div id="daily-tasks-container">${tasksHTML}</div>
+                <div class="daily-tasks-footer">
+                    <div class="streak-info">
+                        <i class="fas fa-calendar-check"></i> پابەندبوون: <span>${consecutiveTaskStreak} ڕۆژ</span>
+                    </div>
+                    <div class="streak-info">
+                        <i class="fas fa-calendar-times"></i> پابەندنەبوون: <span class="broken-streak">${brokenTaskStreak} ڕۆژ</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="dashboard-card">
-                <div class="dashboard-card-header"><i class="fas fa-tasks"></i><h3>پێشکەفتنا گشتی</h3></div>
+                <div class="dashboard-card-header"><i class="fas fa-chart-line"></i><h3>پێشکەفتنا گشتی</h3></div>
                 <div class="progress-item"><div class="progress-item-title"><span>رێرەوا فێربوونێ</span><span>${completedCourses.length} ژ ${totalLevelCourses}</span></div><div class="progress-bar-container"><div class="progress-bar-fill" style="width: ${progressPercentage.toFixed(1)}%;"></div></div></div>
-                <div class="progress-item"><div class="progress-item-title"><span>وانەیێن گشتی یێن تەماشەکری</span><span>${watchedLectures.length}</span></div></div>
-                <div class="progress-item"><div class="progress-item-title"><span>پەرتوکێن خواندی</span><span>${readLibraryBooks.length}</span></div></div>
-                <div class="progress-item"><div class="progress-item-title"><span>حەدیسێن خواندی</span><span>${readHadiths.length} ژ ${allData.hadiths.length}</span></div></div>
-                <div class="progress-item"><div class="progress-item-title"><span>دڵخوازێن من</span><span>${favoritesCount}</span></div></div>
+                <div class="progress-item"><div class="progress-item-title"><span>وانەیێن گشتی یێن تەماشەکری</span><span>${progressManager.getWatchedLectures().length}</span></div></div>
+                <div class="progress-item"><div class="progress-item-title"><span>پەرتوکێن خواندی</span><span>${progressManager.getReadLibraryBooks().length}</span></div></div>
+                <div class="progress-item"><div class="progress-item-title"><span>حەدیسێن خواندی</span><span>${hadithTracker.getReadHadiths().length} ژ ${allData.hadiths.length}</span></div></div>
+                <div class="progress-item"><div class="progress-item-title"><span>دڵخوازێن من</span><span>${favoritesManager.getFavorites().length}</span></div></div>
             </div>
-            <div class="dashboard-card" style="grid-column: 1 / -1;">
+
+            <div class="dashboard-card">
                 <div class="dashboard-card-header"><i class="fas fa-trophy"></i><h3>نیشان و دەستکەفت</h3></div>
                 <div id="badges-container">${badgesHTML || createEmptyStateMessage('هیچ نیشانەکا دەستکەفتی نینە.')}</div>
             </div>
@@ -963,7 +1169,43 @@ function handleGlobalSearch() {
 function navigateToSearchResult(type, id) { closeModal('global-search-modal'); switch (type) { case 'hadith': navigateToView('hadith-view'); setTimeout(() => { const card = document.getElementById(`hadith-card-${id}`); if (card) card.scrollIntoView({behavior: 'smooth', block: 'center'}); }, 200); break; case 'fatwa': navigateToView('fatwas-view'); document.getElementById('fatwa-search-input').value = id; filterFatwas(); break; case 'lecture': navigateToView('waneyan-view'); showLessonList(id); break; } }
 
 // === [ 8. هنارتنا فەنکشنان و PWA ] ===
+// (PWA - Add to Home Screen) لۆژیکێ نوو ژ داخازیا تە
+let deferredPrompt;
+function setupInstallPrompt() {
+    const installBanner = document.getElementById('install-app-banner');
+    const installBtn = document.getElementById('install-app-btn');
+    const dismissBtn = document.getElementById('dismiss-install-btn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installBanner.classList.add('visible');
+    });
+
+    installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`User response to the install prompt: ${outcome}`);
+            deferredPrompt = null;
+            installBanner.classList.remove('visible');
+        }
+    });
+
+    dismissBtn.addEventListener('click', () => {
+        installBanner.classList.remove('visible');
+    });
+
+    window.addEventListener('appinstalled', () => {
+        deferredPrompt = null;
+        installBanner.classList.remove('visible');
+        console.log('PWA was installed');
+    });
+}
+
+// هنارتنا هەمی فەنکشنان بۆ Window
 window.openModal = openModal; window.closeModal = closeModal; window.showLessonList = showLessonList; window.showLevelCourseLessons = showLevelCourseLessons; window.showTeacherProfile = showTeacherProfile; window.renderLocationList = renderLocationList; window.focusOnMapLocation = focusOnMapLocation; window.playMediaInModal = playMediaInModal; window.showPdfInModal = showPdfInModal; window.goToMapLocation = goToMapLocation; window.toggleCourseCompletion = toggleCourseCompletion; window.toggleLectureWatched = toggleLectureWatched; window.toggleLibraryBookRead = toggleLibraryBookRead; window.filterFatwas = filterFatwas; window.toggleFatwa = toggleFatwa; window.selectFatwaTeacher = selectFatwaTeacher; window.filterHadiths = filterHadiths; window.selectHadithFilter = selectHadithFilter; window.changeHadithPage = changeHadithPage; window.copyHadithText = copyHadithText; window.toggleHadithReadUI = toggleHadithReadUI; window.toggleFavoriteUI = toggleFavoriteUI; window.removeFavorite = removeFavorite; window.navigateToFavorite = navigateToFavorite; window.shareContent = shareContent; window.displaySurahTafsir = displaySurahTafsir; window.filterSurahButtons = filterSurahButtons; window.showSurahSelection = showSurahSelection; window.checkLevelUnlockCode = checkLevelUnlockCode; window.resetAllProgress = resetAllProgress; window.navigateToView = navigateToView; window.showHomeView = showHomeView; window.togglePdfMemorization = togglePdfMemorization; window.handleGlobalSearch = handleGlobalSearch; window.navigateToSearchResult = navigateToSearchResult;
+window.dailyTaskManager = dailyTaskManager;
 
 // PWA Service Worker Registration
 if ('serviceWorker' in navigator) {

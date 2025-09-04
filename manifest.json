@@ -1,6 +1,6 @@
 {
   "name": "پرۆژێ ئیسلام",
-  "short_name": "پرۆژێ ",
+  "short_name": "پرۆژێ ئیسلا ",
   "description": "دەروازەیەکا مودێرن بۆ فێربوونا ئیسلامێ",
   "start_url": ".",
   "display": "standalone",
@@ -8,12 +8,12 @@
   "theme_color": "#58a6ff",
   "icons": [
     {
-      "src": "https://ibb.co/pvsdnCHf",
+      "src": "https://ibb.co/7J8GnVMV",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://ibb.co/pvsdnCHf",
+      "src": "https://ibb.co/SXLsqB69",
       "sizes": "512x512",
       "type": "image/png"
     }
